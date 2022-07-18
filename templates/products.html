@@ -6,6 +6,38 @@
 </head>
 <body>
     <h1>Products</h1>
+    <div class="button-link">
+    <a href="/">Return to home</a>
+    </div>
+    <div class="insert">
+        <form action="/products">
+            <label for="product_type_id">Product type id:</label>
+            <select name="product_type_id" id="product_type_id">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <label for="ore_id">Ore id:</label>
+            <select name="ore_id" id="ore_id">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <label for="gem_id">Gem id:</label>
+            <select name="gem_id" id="gem_id">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <label for="num_gems">Num gems: </label>
+            <input type="text" id="num_gems" name="num_gems">
+            <label for="product_name">Product name: </label>
+            <input type="text" id="product_name" name="product_name">
+            <label for="description">Description: </label>
+            <input type="text" id="description" name="description">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
     <div class="data-table">
         <table>
             <tr>
@@ -30,13 +62,29 @@
                 <td>edit</td>
                 <td>delete</td>
             </tr>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>Clever dagger</td>
+                <td>A flashy iron dagger with a single diamond in the hilt</td>
+                <td>edit</td>
+                <td>delete</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>3</td>
+                <td>2</td>
+                <td>NULL</td>
+                <td>0</td>
+                <td>Halfling Halfhelm</td>
+                <td>A modest but durable helm</td>
+                <td>edit</td>
+                <td>delete</td>
+            </tr>
         </table>
-    </div>
-    <div class="insert">
-    <a href="/">Insert new</a>
-    </div>
-    <div class="button-link">
-    <a href="/">Return to home</a>
     </div>
 </body>
 </html>

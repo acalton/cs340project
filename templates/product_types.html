@@ -6,6 +6,22 @@
 </head>
 <body>
     <h1>Product_Types</h1>
+    <div class="button-link">
+    <a href="/">Return to home</a>
+    </div>
+    <div class="insert">
+        <form action="/product_types">
+            <label for="product_type_name">Product type name: </label>
+            <input type="text" id="product_type_name" name="product_type_name">
+            <label for="product_type_price">Product type price: </label>
+            <input type="text" id="product_type_price" name="product_type_price">
+            <label for="num_ore_req">Num ore req: </label>
+            <input type="text" id="num_ore_req" name="num_ore_req">
+            <label for="description">Description: </label>
+            <input type="text" id="description" name="description">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
     <div class="data-table">
         <table>
             <tr>
@@ -22,13 +38,21 @@
                 <td>6</td>
                 <td>A two-handed greatsword for the strongest of warriors</td>
             </tr>
+            <tr>
+                <td>2</td>
+                <td>Dagger</td>
+                <td>60.00</td>
+                <td>2</td>
+                <td>An easily concealable but deadly dagger</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Halfhelm</td>
+                <td>100.00</td>
+                <td>4</td>
+                <td>A sturdy helmet for a foot soldier</td>
+            </tr>
         </table>
-    </div>
-    <div class="insert">
-    <a href="/">Insert new</a>
-    </div>
-    <div class="button-link">
-    <a href="/">Return to home</a>
     </div>
 </body>
 </html>

@@ -6,6 +6,20 @@
 </head>
 <body>
     <h1>Ore</h1>
+    <div class="button-link">
+    <a href="/">Return to home</a>
+    </div>
+    <div class="insert">
+        <form action="/ore">
+            <label for="ore_name">Ore name: </label>
+            <input type="text" id="ore_name" name="ore_name">
+            <label for="price_per_ore">Price per ore: </label>
+            <input type="text" id="price_per_ore" name="price_per_ore">
+            <label for="description">Description: </label>
+            <input type="text" id="description" name="description">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
     <div class="data-table">
         <table>
             <tr>
@@ -20,13 +34,19 @@
                 <td>75.00</td>
                 <td>Strong, mid-priced</td>
             </tr>
+            <tr>
+                <td>2</td>
+                <td>Copper</td>
+                <td>90.00</td>
+                <td>NULL</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Steel</td>
+                <td>50.00</td>
+                <td>Affordable but reliable</td>
+            </tr>
         </table>
-    </div>
-    <div class="insert">
-    <a href="/">Insert new</a>
-    </div>
-    <div class="button-link">
-    <a href="/">Return to home</a>
     </div>
 </body>
 </html>

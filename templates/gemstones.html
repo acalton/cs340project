@@ -6,6 +6,20 @@
 </head>
 <body>
     <h1>Gemstones</h1>
+    <div class="button-link">
+    <a href="/">Return to home</a>
+    </div>
+    <div class="insert">
+        <form action="/gemstones">
+            <label for="gem_name">Gem name: </label>
+            <input type="text" id="gem_name" name="gem_name">
+            <label for="gem_price">Gem price: </label>
+            <input type="text" id="gem_price" name="gem_price">
+            <label for="description">Description: </label>
+            <input type="text" id="description" name="description">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
     <div class="data-table">
         <table>
             <tr>
@@ -20,13 +34,19 @@
                 <td>1000.00</td>
                 <td>Sizable, clear diamond</td>
             </tr>
+            <tr>
+                <td>2</td>
+                <td>Sapphire</td>
+                <td>750.00</td>
+                <td>Deep blue sapphire</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Peridot</td>
+                <td>100.00</td>
+                <td>August birthstone</td>
+            </tr>
         </table>
-    </div>
-    <div class="insert">
-    <a href="/">Insert new</a>
-    </div>
-    <div class="button-link">
-    <a href="/">Return to home</a>
     </div>
 </body>
 </html>

@@ -6,6 +6,20 @@
 </head>
 <body>
     <h1>Customers</h1>
+    <div class="button-link">
+    <a href="/">Return to home</a>
+    </div>
+    <div class="insert">
+        <form action="/customers">
+            <label for="full_name">Full name: </label>
+            <input type="text" id="full_name" name="full_name">
+            <label for="phone_number">Phone number: </label>
+            <input type="text" id="phone_number" name="phone_number">
+            <label for="email_address">Email address: </label>
+            <input type="text" id="email_address" name="email_address">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
     <div class="data-table">
         <table>
             <tr>
@@ -20,13 +34,19 @@
                 <td>000-111-2222</td>
                 <td>lord0winterfell@yahoo.com</td>
             </tr>
+            <tr>
+                <td>2</td>
+                <td>Dalinar Kholin</td>
+                <td>333-444-5555</td>
+                <td>bondsmith@aol.com</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Samwise Gamgee</td>
+                <td>666-777-8888</td>
+                <td>sam_gam@gmail.com</td>
+            </tr>
         </table>
-    </div>
-    <div class="insert">
-    <a href="/">Insert new</a>
-    </div>
-    <div class="button-link">
-    <a href="/">Return to home</a>
     </div>
 </body>
 </html>
