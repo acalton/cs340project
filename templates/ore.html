@@ -10,15 +10,18 @@
     <a href="/">Return to home</a>
     </div>
     <div class="insert">
-        <form action="/ore">
-            <label for="ore_name">Ore name: </label>
-            <input type="text" id="ore_name" name="ore_name">
-            <label for="price_per_ore">Price per ore: </label>
-            <input type="text" id="price_per_ore" name="price_per_ore">
-            <label for="description">Description: </label>
-            <input type="text" id="description" name="description">
-            <input type="submit" value="Submit">
-        </form>
+        <fieldset>
+            <legend>Add ore: </legend>
+            <form action="/ore">
+                <label for="ore_name">Ore name: </label>
+                <input type="text" id="ore_name" name="ore_name">
+                <label for="price_per_ore">Price per ore: </label>
+                <input type="text" id="price_per_ore" name="price_per_ore">
+                <label for="description">Description: </label>
+                <input type="text" id="description" name="description">
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
     </div>
     <div class="data-table">
         <table>

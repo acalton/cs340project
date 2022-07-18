@@ -10,15 +10,18 @@
     <a href="/">Return to home</a>
     </div>
     <div class="insert">
-        <form action="/gemstones">
-            <label for="gem_name">Gem name: </label>
-            <input type="text" id="gem_name" name="gem_name">
-            <label for="gem_price">Gem price: </label>
-            <input type="text" id="gem_price" name="gem_price">
-            <label for="description">Description: </label>
-            <input type="text" id="description" name="description">
-            <input type="submit" value="Submit">
-        </form>
+        <fieldset>
+            <legend>Add gemstone: </legend>
+            <form action="/gemstones">
+                <label for="gem_name">Gem name: </label>
+                <input type="text" id="gem_name" name="gem_name">
+                <label for="gem_price">Gem price: </label>
+                <input type="text" id="gem_price" name="gem_price">
+                <label for="description">Description: </label>
+                <input type="text" id="description" name="description">
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
     </div>
     <div class="data-table">
         <table>

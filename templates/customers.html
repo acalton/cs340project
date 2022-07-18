@@ -10,15 +10,18 @@
     <a href="/">Return to home</a>
     </div>
     <div class="insert">
-        <form action="/customers">
-            <label for="full_name">Full name: </label>
-            <input type="text" id="full_name" name="full_name">
-            <label for="phone_number">Phone number: </label>
-            <input type="text" id="phone_number" name="phone_number">
-            <label for="email_address">Email address: </label>
-            <input type="text" id="email_address" name="email_address">
-            <input type="submit" value="Submit">
-        </form>
+        <fieldset>
+            <legend>Add customer: </legend>
+            <form action="/customers">
+                <label for="full_name">Full name: </label>
+                <input type="text" id="full_name" name="full_name">
+                <label for="phone_number">Phone number: </label>
+                <input type="text" id="phone_number" name="phone_number">
+                <label for="email_address">Email address: </label>
+                <input type="text" id="email_address" name="email_address">
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
     </div>
     <div class="data-table">
         <table>

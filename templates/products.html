@@ -10,33 +10,74 @@
     <a href="/">Return to home</a>
     </div>
     <div class="insert">
-        <form action="/products">
-            <label for="product_type_id">Product type id:</label>
-            <select name="product_type_id" id="product_type_id">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-            <label for="ore_id">Ore id:</label>
-            <select name="ore_id" id="ore_id">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-            <label for="gem_id">Gem id:</label>
-            <select name="gem_id" id="gem_id">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-            <label for="num_gems">Num gems: </label>
-            <input type="text" id="num_gems" name="num_gems">
-            <label for="product_name">Product name: </label>
-            <input type="text" id="product_name" name="product_name">
-            <label for="description">Description: </label>
-            <input type="text" id="description" name="description">
-            <input type="submit" value="Submit">
-        </form>
+        <fieldset>
+            <legend>Add product: </legend>
+            <form action="/products">
+                <label for="product_type_id">Product type id:</label>
+                <select name="product_type_id" id="product_type_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="ore_id">Ore id:</label>
+                <select name="ore_id" id="ore_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="gem_id">Gem id:</label>
+                <select name="gem_id" id="gem_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="num_gems">Num gems: </label>
+                <input type="text" id="num_gems" name="num_gems">
+                <label for="product_name">Product name: </label>
+                <input type="text" id="product_name" name="product_name">
+                <label for="description">Description: </label>
+                <input type="text" id="description" name="description">
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
+    </div>
+    <div class="update">
+        <fieldset>
+            <legend>Edit product: </legend>
+            <form action="/products">
+                <label for="product_id">Product id:</label>
+                <select name="product_id" id="product_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="product_type_id_update">Product type id:</label>
+                <select name="product_type_id_update" id="product_type_id_update">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="ore_id_update">Ore id:</label>
+                <select name="ore_id_update" id="ore_id_update">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="gem_id_update">Gem id:</label>
+                <select name="gem_id_update" id="gem_id_update">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="num_gems_update">Num gems: </label>
+                <input type="text" id="num_gems_update" name="num_gems_update">
+                <label for="product_name_update">Product name: </label>
+                <input type="text" id="product_name_update" name="product_name_update">
+                <label for="description_update">Description: </label>
+                <input type="text" id="description_update" name="description_update">
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
     </div>
     <div class="data-table">
         <table>
@@ -48,7 +89,6 @@
                 <th>num_gems</th>
                 <th>product_name</th>
                 <th>description</th>
-                <th>edit</th>
                 <th>delete</th>
             </tr>
             <tr>
@@ -59,8 +99,7 @@
                 <td>2</td>
                 <td>Big Sword</td>
                 <td>Steel greatsword with sapphires embedded in the hilt</td>
-                <td>edit</td>
-                <td>delete</td>
+                <td><a href="/products">Delete</a></td>
             </tr>
             <tr>
                 <td>2</td>
@@ -70,8 +109,7 @@
                 <td>1</td>
                 <td>Clever dagger</td>
                 <td>A flashy iron dagger with a single diamond in the hilt</td>
-                <td>edit</td>
-                <td>delete</td>
+                <td><a href="/products">Delete</a></td>
             </tr>
             <tr>
                 <td>3</td>
@@ -81,8 +119,7 @@
                 <td>0</td>
                 <td>Halfling Halfhelm</td>
                 <td>A modest but durable helm</td>
-                <td>edit</td>
-                <td>delete</td>
+                <td><a href="/products">Delete</a></td>
             </tr>
         </table>
     </div>

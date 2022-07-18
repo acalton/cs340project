@@ -10,17 +10,42 @@
     <a href="/">Return to home</a>
     </div>
     <div class="insert">
-        <form action="/orders">
-            <label for="customer_id">Customer id:</label>
-            <select name="customer_id" id="customer_id">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-            <label for="order_date_time">Order date time: </label>
-            <input type="text" id="order_date_time" name="order_date_time">
-            <input type="submit" value="Submit">
-        </form>
+        <fieldset>
+            <legend>Add order: </legend>
+            <form action="/orders">
+                <label for="customer_id">Customer id:</label>
+                <select name="customer_id" id="customer_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="order_date_time">Order date time: </label>
+                <input type="text" id="order_date_time" name="order_date_time">
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
+    </div>
+    <div class="update">
+        <fieldset>
+            <legend>Edit order: </legend>
+            <form action="/orders">
+                <label for="order_id">Order id:</label>
+                <select name="Order_id" id="Order_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="customer_id_update">Customer id:</label>
+                <select name="customer_id_update" id="customer_id_update">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="order_date_time_update">Order date time: </label>
+                <input type="text" id="order_date_time_update" name="order_date_time_update">
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
     </div>
     <div class="data-table">
         <table>
@@ -28,29 +53,25 @@
                 <th>order_id</th>
                 <th>customer_id</th>
                 <th>order_date_time</th>
-                <th>edit</th>
                 <th>delete</th>
             </tr>
             <tr>
                 <td>1</td>
                 <td>1</td>
                 <td>2022-06-08 08:50:02.000</td>
-                <td>edit</td>
-                <td>delete</td>
+                <td><a href="/orders">Delete</a></td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>2</td>
                 <td>2022-07-01 06:30:10.111</td>
-                <td>edit</td>
-                <td>delete</td>
+                <td><a href="/orders">Delete</a></td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>3</td>
                 <td>2022-06-19 11:20:33.020</td>
-                <td>edit</td>
-                <td>delete</td>
+                <td><a href="/orders">Delete</a></td>
             </tr>
         </table>
     </div>

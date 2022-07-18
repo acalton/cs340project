@@ -10,17 +10,20 @@
     <a href="/">Return to home</a>
     </div>
     <div class="insert">
-        <form action="/product_types">
-            <label for="product_type_name">Product type name: </label>
-            <input type="text" id="product_type_name" name="product_type_name">
-            <label for="product_type_price">Product type price: </label>
-            <input type="text" id="product_type_price" name="product_type_price">
-            <label for="num_ore_req">Num ore req: </label>
-            <input type="text" id="num_ore_req" name="num_ore_req">
-            <label for="description">Description: </label>
-            <input type="text" id="description" name="description">
-            <input type="submit" value="Submit">
-        </form>
+        <fieldset>
+            <legend>Add product type: </legend>
+            <form action="/product_types">
+                <label for="product_type_name">Product type name: </label>
+                <input type="text" id="product_type_name" name="product_type_name">
+                <label for="product_type_price">Product type price: </label>
+                <input type="text" id="product_type_price" name="product_type_price">
+                <label for="num_ore_req">Num ore req: </label>
+                <input type="text" id="num_ore_req" name="num_ore_req">
+                <label for="description">Description: </label>
+                <input type="text" id="description" name="description">
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
     </div>
     <div class="data-table">
         <table>
