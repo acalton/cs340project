@@ -17,6 +17,13 @@ SELECT ore_id, ore_name, price_per_ore, description FROM Ore;
 -- to get all gemstones for gem page
 SELECT gem_id, gem_name, gem_price, description FROM Gemstones;
 
+-- used in gem page to search for gems less than a certain price
+SELECT gem_name, gem_price FROM Gemstones WHERE gem_price <= :gem_price_input;
+
+-- select statement for intersection table
+SELECT order_has_product_id, order_id, product_id, total_price FROM Orders_has_Products;
+
+
 -------------------------
 --INSERTS for the entity tables
 
