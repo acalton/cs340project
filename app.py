@@ -1,5 +1,13 @@
 from flask import Flask, render_template
+
 app = Flask(__name__)
+
+# database connection info
+app.config["MYSQL_HOST"] = "classmysql.engr.oregonstate.edu"
+app.config["MYSQL_USER"] = "cs340_caltona"
+app.config["MYSQL_PASSWORD"] = "6694"
+app.config["MYSQL_DB"] = "cs340_caltona"
+app.config["MYSQL_CURSORCLASS"] = "DictCursor"
 
 
 @app.route('/')
@@ -35,6 +43,11 @@ def products():
 @app.route('/orders')
 def orders():
     return render_template("orders.html")
+
+
+@app.route('/orders_has_products')
+def orders():
+    return render_template("orders_has_products.html")
 
 
 if __name__ == '__main__':

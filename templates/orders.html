@@ -3,16 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Orders</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body>
     <h1>Orders</h1>
     <div class="button-link">
-    <a href="/">Return to home</a>
+    <a href="../index.html">Return to home</a><br><br>
     </div>
+    <div class="data-table">
+        <table>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer ID</th>
+                <th>Order Date and Time</th>
+                <th>Delete</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>2022-06-08 08:50:02.000</td>
+                <td><a href="orders.html">Delete</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>2022-07-01 06:30:10.111</td>
+                <td><a href="orders.html">Delete</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>3</td>
+                <td>2022-06-19 11:20:33.020</td>
+                <td><a href="orders.html">Delete</a></td>
+            </tr>
+        </table>
+    </div><br><br>
     <div class="insert">
         <fieldset>
             <legend>Add order: </legend>
-            <form action="/orders">
+            <form action="orders.html">
                 <label for="customer_id">Customer id:</label>
                 <select name="customer_id" id="customer_id">
                     <option value="1">1</option>
@@ -24,11 +53,11 @@
                 <input type="submit" value="Submit">
             </form>
         </fieldset>
-    </div>
+    </div><br><br>
     <div class="update">
         <fieldset>
             <legend>Edit order: </legend>
-            <form action="/orders">
+            <form action="orders.html">
                 <label for="order_id">Order id:</label>
                 <select name="Order_id" id="Order_id">
                     <option value="1">1</option>
@@ -46,34 +75,6 @@
                 <input type="submit" value="Submit">
             </form>
         </fieldset>
-    </div>
-    <div class="data-table">
-        <table>
-            <tr>
-                <th>order_id</th>
-                <th>customer_id</th>
-                <th>order_date_time</th>
-                <th>delete</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>2022-06-08 08:50:02.000</td>
-                <td><a href="/orders">Delete</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>2022-07-01 06:30:10.111</td>
-                <td><a href="/orders">Delete</a></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>3</td>
-                <td>2022-06-19 11:20:33.020</td>
-                <td><a href="/orders">Delete</a></td>
-            </tr>
-        </table>
     </div>
 </body>
 </html>

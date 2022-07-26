@@ -1,0 +1,8 @@
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+h1, div {
+    font-family: Arial;
+}

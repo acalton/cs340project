@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <h1>Orders</h1>
+    <div class="button-link">
+    <a href="../index.html">Return to home</a><br><br>
+    </div>
+    <div class="data-table">
+        <table>
+            <tr>
+                <th>Order Has Product ID</th>
+                <th>Order ID</th>
+                <th>Product ID</th>
+                <th>Total Price</th>
+                <th>Delete</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>$$*</td>
+                <td><a href="orders_has_products.html">Delete</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>$$*</td>
+                <td><a href="orders_has_products.html">Delete</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>$$*</td>
+                <td><a href="orders_has_products.html">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+    <p>*Prices will be calculated when populated with real data</p><br><br>
+    <div class="insert">
+        <fieldset>
+            <legend>Add order has product: </legend>
+            <form action="orders_has_products.html">
+                <label for="order_id">Order id:</label>
+                <select name="order_id" id="order_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="product_id">Product id:</label>
+                <select name="product_id" id="product_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </form>
+        </fieldset>
+    </div><br><br>
+    <div class="update">
+        <fieldset>
+            <legend>Edit order has product: </legend>
+            <form action="orders.html">
+                <label for="order_has_product_id">Order has Product id:</label>
+                <select name="order_has_product_id" id="order_has_product_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="customer_id_update">Order id:</label>
+                <select name="customer_id_update" id="customer_id_update">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="product_id_update">Product id:</label>
+                <select name="product_id_update" id="product_id_update">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </form>
+        </fieldset>
+    </div>
+</body>
+</html>

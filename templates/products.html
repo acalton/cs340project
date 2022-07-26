@@ -3,16 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body>
     <h1>Products</h1>
     <div class="button-link">
-    <a href="/">Return to home</a>
+    <a href="../index.html">Return to home</a><br><br>
     </div>
+    <div class="data-table">
+        <table>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Type ID</th>
+                <th>Ore ID</th>
+                <th>Gem ID</th>
+                <th>Num Gems</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Description</th>
+                <th>Delete</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>3</td>
+                <td>2</td>
+                <td>2</td>
+                <td>Big Sword</td>
+                <td>$$*</td>
+                <td>Steel greatsword with sapphires embedded in the hilt</td>
+                <td><a href="products.html">Delete</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>Clever dagger</td>
+                <td>$$*</td>
+                <td>A flashy iron dagger with a single diamond in the hilt</td>
+                <td><a href="products.html">Delete</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>3</td>
+                <td>2</td>
+                <td>None</td>
+                <td>0</td>
+                <td>Halfling Halfhelm</td>
+                <td>$$*</td>
+                <td>A modest but durable helm</td>
+                <td><a href="products.html">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+    <p>*Prices will be calculated when populated with real data</p><br><br>
     <div class="insert">
         <fieldset>
             <legend>Add product: </legend>
-            <form action="/products">
+            <form action="products.html">
                 <label for="product_type_id">Product type id:</label>
                 <select name="product_type_id" id="product_type_id">
                     <option value="1">1</option>
@@ -40,11 +90,11 @@
                 <input type="submit" value="Submit">
             </form>
         </fieldset>
-    </div>
+    </div><br><br>
     <div class="update">
         <fieldset>
             <legend>Edit product: </legend>
-            <form action="/products">
+            <form action="products.html">
                 <label for="product_id">Product id:</label>
                 <select name="product_id" id="product_id">
                     <option value="1">1</option>
@@ -78,50 +128,6 @@
                 <input type="submit" value="Submit">
             </form>
         </fieldset>
-    </div>
-    <div class="data-table">
-        <table>
-            <tr>
-                <th>product_id</th>
-                <th>product_type_id</th>
-                <th>ore_id</th>
-                <th>gem_id</th>
-                <th>num_gems</th>
-                <th>product_name</th>
-                <th>description</th>
-                <th>delete</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>3</td>
-                <td>2</td>
-                <td>2</td>
-                <td>Big Sword</td>
-                <td>Steel greatsword with sapphires embedded in the hilt</td>
-                <td><a href="/products">Delete</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>Clever dagger</td>
-                <td>A flashy iron dagger with a single diamond in the hilt</td>
-                <td><a href="/products">Delete</a></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>3</td>
-                <td>2</td>
-                <td>NULL</td>
-                <td>0</td>
-                <td>Halfling Halfhelm</td>
-                <td>A modest but durable helm</td>
-                <td><a href="/products">Delete</a></td>
-            </tr>
-        </table>
     </div>
 </body>
 </html>
