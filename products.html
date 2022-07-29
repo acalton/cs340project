@@ -4,97 +4,78 @@
     <meta charset="UTF-8">
     <title>Products</title>
     <link rel="stylesheet" href="../static/css/styles.css">
+    <script>
+        function browseProducts() {
+            showform('browse');
+        }
+    </script>
 </head>
-<body>
+<body onload="browseProducts()">
     <h1>Products</h1>
     <div class="button-link">
     <a href="/">Return to home</a><br><br>
     </div>
-    <div class="data-table">
+    <div class="data-table" id="browse">
         <table>
-            <tr>
-                <th>Product ID</th>
-                <th>Product Type ID</th>
-                <th>Ore ID</th>
-                <th>Gem ID</th>
-                <th>Num Gems</th>
-                <th>Product Name</th>
-                <th>Product Price</th>
-                <th>Description</th>
-                <th>Delete</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>3</td>
-                <td>2</td>
-                <td>2</td>
-                <td>Big Sword</td>
-                <td>$$*</td>
-                <td>Steel greatsword with sapphires embedded in the hilt</td>
-                <td><a href="/products">Delete</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>Clever dagger</td>
-                <td>$$*</td>
-                <td>A flashy iron dagger with a single diamond in the hilt</td>
-                <td><a href="/products">Delete</a></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>3</td>
-                <td>2</td>
-                <td>None</td>
-                <td>0</td>
-                <td>Halfling Halfhelm</td>
-                <td>$$*</td>
-                <td>A modest but durable helm</td>
-                <td><a href="/products">Delete</a></td>
-            </tr>
+            {% if data %}
+                <thead>
+                    <tr>
+                        {% for key in data[0].keys() %}
+                        <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+                        {% endfor %}
+                    </tr>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            {% for key in item.keys() %}
+                            <td> {{item[key]}} </td> 
+                            {% endfor %}
+                            <td><a href="/products" class="btn btn-default">Edit</a></td>
+						    <td><a href="/products" class="btn btn-default">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </thead>
+            {% endif %}
         </table>
     </div>
     <p>*Prices will be calculated when populated with real data</p><br><br>
-    <div class="insert">
+    <div id="insert" class="insert">
         <fieldset>
             <legend>Add product: </legend>
-            <form action="/products">
+            <form id="insertProduct" action="/products" method="post">
                 <label for="product_type_id">Product type id:</label>
-                <select name="product_type_id" id="product_type_id">
+                <select name="product_type_id" class="form-control" id="product_type_id">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
                 <label for="ore_id">Ore id:</label>
-                <select name="ore_id" id="ore_id">
+                <select name="ore_id" class="form-control" id="ore_id">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
                 <label for="gem_id">Gem id:</label>
-                <select name="gem_id" id="gem_id">
+                <select name="gem_id" class="form-control" id="gem_id">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
                 <label for="num_gems">Num gems: </label>
-                <input type="text" id="num_gems" name="num_gems">
+                <input type="text" class="form-control" id="num_gems" name="num_gems">
                 <label for="product_name">Product name: </label>
-                <input type="text" id="product_name" name="product_name">
+                <input type="text" class="form-control" id="product_name" name="product_name">
                 <label for="description">Description: </label>
-                <input type="text" id="description" name="description">
-                <input type="submit" value="Submit">
+                <input type="text" class="form-control" id="description" name="description">
+                <input type="submit" class="btn btn-primary" value="Add Product" name="Add_Product">
             </form>
         </fieldset>
     </div><br><br>
     <div class="update">
         <fieldset>
             <legend>Edit product: </legend>
-            <form action="/products">
+            <form id="editProduct" action="/products" method="post">
                 <label for="product_id">Product id:</label>
                 <select name="product_id" id="product_id">
                     <option value="1">1</option>

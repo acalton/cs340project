@@ -4,38 +4,35 @@
     <meta charset="UTF-8">
     <title>Customers</title>
     <link rel="stylesheet" href="../static/css/styles.css">
+    <script>
+        function browseCustomers() {
+            showform('browse');
+        }
+    </script>
 </head>
-<body>
+<body onload="browseCustomers()">
     <h1>Customers</h1>
     <div class="button-link">
     <a href="/">Return to home</a><br><br>
     </div>
-    <div class="data-table">
+    <div class="data-table" id="browse">
         <table>
-            <tr>
-                <th>Customer ID</th>
-                <th>Full Name</th>
-                <th>Phone Number</th>
-                <th>Email</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Ned Stark</td>
-                <td>000-111-2222</td>
-                <td>lord0winterfell@yahoo.com</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Dalinar Kholin</td>
-                <td>333-444-5555</td>
-                <td>bondsmith@aol.com</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Samwise Gamgee</td>
-                <td>666-777-8888</td>
-                <td>sam_gam@gmail.com</td>
-            </tr>
+            {% if data %}
+                <thead>
+                    <tr>
+                        {% for key in data[0].keys() %}
+                        <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+                        {% endfor %}
+                    </tr>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            {% for key in item.keys() %}
+                            <td> {{item[key]}} </td> 
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+            {% endif %}
         </table>
     </div><br><br>
     <div class="insert">

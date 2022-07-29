@@ -1,15 +1,17 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_mysqldb import MySQL
 import os
 
 app = Flask(__name__)
 
-""" # database connection info
+ # database connection info
 app.config["MYSQL_HOST"] = "classmysql.engr.oregonstate.edu"
 app.config["MYSQL_USER"] = "cs340_caltona"
 app.config["MYSQL_PASSWORD"] = "6694"
 app.config["MYSQL_DB"] = "cs340_caltona"
-app.config["MYSQL_CURSORCLASS"] = "DictCursor" """
+app.config["MYSQL_CURSORCLASS"] = "DictCursor"
+
+mysql = MySQL(app)
 
 
 @app.route('/')
@@ -17,13 +19,27 @@ def home():
     return render_template("index.html")
 
 
-@app.route('/customers')
+@app.route('/customers', methods=["GET"])
 def customers():
-    return render_template("customers.html")
+    if request.method == "GET":
+        query = "SELECT customer_id, full_name, phone_number, email, FROM Customers"
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("customers.html", data=data)
 
 
-@app.route('/gemstones')
+@app.route('/gemstones', methods=["GET"])
 def gemstones():
+    if request.method == "GET":
+        query = "SELECT gem_id, gem_name, gem_price, description, FROM Gemstones"
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("gemstones.html", data=data)
+
     return render_template("gemstones.html")
 
 
@@ -40,7 +56,7 @@ def product_types():
 @app.route('/products', methods=["POST", "GET"])
 def products():
     if request.method == "POST":
-        if request.form.get('Add_Product'):
+        if request.form.get("Add_Product"):
             product_type_id = request.form["product_type_id"]
             ore_id = request.form["ore_id"]
             gem_id = request.form["gem_id"]
@@ -48,7 +64,24 @@ def products():
             product_name = request.form["product_name"]
             description = request.form["description"]
 
-    return render_template("products.html")
+            query = "INSERT INTO Products (product_type_id, ore_id, gem_id,\
+             num_gems, product_name, description) VALUES (%d, %d, %d, %d, %s, %s)"
+            cur = mysql.connection.cursor()
+            cur.execute(query, (product_type_id, ore_id, gem_id, num_gems, product_name, description))
+            mysql.connection.commit()
+
+            return render_template("products.html")
+    
+    if request.method == 'GET':
+        query = "SELECT product_id, product_type_id, ore_id, gem_id,\
+         num_gems, product_name, product_price, description AS \
+         Product ID, Product Type ID, Ore ID, Gem ID, Num Gems, \
+         Product Name, Product Price, Description FROM Products"
+        cur = mysql.connection.cursor()
+        cur.execute(query)
+        data = cur.fetchall()
+
+        return render_template("products.html", data=data)
 
 
 @app.route('/orders')
