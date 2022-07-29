@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ore</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <h1>Ore</h1>
+    <div class="button-link">
+    <a href="/">Return to home</a><br><br>
+    </div>
+    <div class="data-table">
+        <table>
+            <tr>
+                <th>Ore ID</th>
+                <th>Ore Name</th>
+                <th>Price Per Ore</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Iron</td>
+                <td>75.00</td>
+                <td>Strong, mid-priced</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Copper</td>
+                <td>90.00</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Steel</td>
+                <td>50.00</td>
+                <td>Affordable but reliable</td>
+            </tr>
+        </table>
+    </div><br><br>
+    <div class="insert">
+        <fieldset>
+            <legend>Add ore: </legend>
+            <form action="/ore">
+                <label for="ore_name">Ore name: </label>
+                <input type="text" id="ore_name" name="ore_name">
+                <label for="price_per_ore">Price per ore: </label>
+                <input type="text" id="price_per_ore" name="price_per_ore">
+                <label for="description">Description: </label>
+                <input type="text" id="description" name="description">
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
+    </div>
+</body>
+</html>

@@ -62,6 +62,7 @@ CREATE TABLE `Products` (
   `gem_id` int(11) DEFAULT NULL,
   `num_gems` int(11) NOT NULL DEFAULT 0,
   `product_name` varchar(100) NOT NULL,
+  `product_price` decimal(12,2) NOT NULL DEFAULT 00.00,
   `description` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`product_id`),
   KEY `product_type_id` (`product_type_id`),
