@@ -3,6 +3,61 @@ table, th, td {
     padding: 5px;
 }
 
-h1, div {
-    font-family: Arial;
+h1 {
+    font-style: italic;
+    font-family: fantasy; 
+    color:rgb(104, 150, 110);
+    text-align: center;
+    border: 2px solid black;
+}
+
+a {
+  font-style: italic;
+  color: white;
+}
+
+body {
+    background-color: rgba(213, 206, 210, 0.778);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(32, 39, 38);
+    margin: 2%, rgb(59, 221, 197);
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
+
+thead {
+    font: bold;
+}
+
+
+tr:hover {
+    background-color: #ddd;
+}
+
+tr td {
+    border: 1px solid rgb(37, 2, 2);
+    color:rgb(3, 41, 35);
+    padding: 8px;
+ }  
+
+
+legend {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  color:rgb(163, 202, 168);
+}
+
+form {
+    color:rgb(163, 202, 168);
+}
+
+label {
+  color: black;
+  font-size: 0.8em;
+  line-break: auto;
+
 }
