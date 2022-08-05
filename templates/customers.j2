@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script>
+        function browseCustomers() {
+            showform('browse');
+        }
+    </script>
+</head>
+<body onload="browseCustomers()">
+    <h1>Customers</h1>
+    <div class="button-link">
+    <a href="/">Return to home</a><br><br>
+    </div>
+    <div class="data-table" id="browse">
+        <table>
+            {% if data %}
+                <thead>
+                    <tr>
+                        {% for key in data[0].keys() %}
+                        <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+                        {% endfor %}
+                    </tr>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            {% for key in item.keys() %}
+                            <td> {{item[key]}} </td> 
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+            {% endif %}
+        </table>
+    </div><br><br>
+    <div id="insert">
+        <form id="insertCustomer" action="/customers" method="post">
+            <legend><strong>Add Customer</strong></legend>
+            <fieldset>
+                <label for="full_name">Full name: </label>
+                <input type="text" id="full_name" name="full_name" placeholder="" required>
+                <label for="phone_number">Phone number: </label>
+                <input type="text" id="phone_number" name="phone_number" placeholder="" required>
+                <label for="email">Email address: </label>
+                <input type="text" id="email" name="email" placeholder="" required>
+            </fieldset>
+            <input type="submit" value="Add Customer" name="Add_Customer" class="btn btn-primary" style="margin:.5rem;">
+			<input class="btn" type="button" value="Cancel" onClick="browseCustomers()">
+        </form>
+    </div><br><br>
+</body>
+</html>

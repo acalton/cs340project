@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ore</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script>
+        function browseOre() {
+            showform('browse');
+        }
+    </script>
+</head>
+<body onload="browseOre()">
+    <h1>Ore</h1>
+    <div class="button-link">
+    <a href="/">Return to home</a><br><br>
+    </div>
+    <div class="data-table" id="browse">
+        <table>
+            {% if data %}
+                <thead>
+                    <tr>
+                        {% for key in data[0].keys() %}
+                        <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+                        {% endfor %}
+                    </tr>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            {% for key in item.keys() %}
+                            <td> {{item[key]}} </td> 
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+            {% endif %}
+        </table>
+    </div><br><br>
+    <div id="insert">
+        <form id="insertOre" action="/ore" method="post">
+            <legend><strong>Add Ore</strong></legend>
+            <fieldset>
+                <label for="ore_name">Ore name: </label>
+                <input type="text" id="ore_name" name="ore_name" placeholder="" required>
+                <label for="price_per_ore">Price per ore: </label>
+                <input type="text" id="price_per_ore" name="price_per_ore" placeholder="" required>
+                <label for="description">Description: </label>
+                <input type="text" id="description" name="description" placeholder="" required>
+            </fieldset>
+            <input type="submit" value="Add Ore" name="Add_Ore" class="btn btn-primary" style="margin:.5rem;">
+			<input class="btn" type="button" value="Cancel" onClick="browseOre()">
+        </form>
+    </div><br><br>
+</body>
+</html>

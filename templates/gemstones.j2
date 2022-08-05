@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gemstones</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script>
+        function browseGemstones() {
+            showform('browse');
+        }
+    </script>
+</head>
+<body onload="browseGemstones()">
+    <h1>Gemstones</h1>
+    <div class="button-link">
+    <a href="/">Return to home</a><br><br>
+    </div>
+    <div class="data-table" id="browse">
+        <table>
+            {% if data %}
+                <thead>
+                    <tr>
+                        {% for key in data[0].keys() %}
+                        <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+                        {% endfor %}
+                    </tr>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            {% for key in item.keys() %}
+                            <td> {{item[key]}} </td> 
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+            {% endif %}
+        </table>
+    </div><br><br>
+    <div id="insert">
+        <form id="insertGemstone" action="/gemstones" method="post">
+            <legend><strong>Add Gemstone</strong></legend>
+            <fieldset>
+                <label for="gem_name">Gem name: </label>
+                <input type="text" id="gem_name" name="gem_name" placeholder="" required>
+                <label for="gem_price">Gem price: </label>
+                <input type="text" id="gem_pricer" name="gem_price" placeholder="" required>
+                <label for="description">Description: </label>
+                <input type="text" id="description" name="description" placeholder="" required>
+            </fieldset>
+            <input type="submit" value="Add Gemstone" name="Add_Gemstone" class="btn btn-primary" style="margin:.5rem;">
+			<input class="btn" type="button" value="Cancel" onClick="browseGemstones()">
+        </form>
+    </div><br><br>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders Has Products</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script>
+        function browseOrdershasProducts() {
+            showform('browse');
+        }
+    </script>
+</head>
+<body onload="browseOrdershasProducts()">
+    <h1>Orders Has Products</h1>
+    <div class="button-link">
+    <a href="/">Return to home</a><br><br>
+    </div>
+    <div class="data-table" id="browse">
+        <table>
+            {% if data %}
+                <thead>
+                    <tr>
+                        {% for key in data[0].keys() %}
+                        <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+                        {% endfor %}
+                    </tr>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            {% for key in item.keys() %}
+                            <td> {{item[key]}} </td> 
+                            {% endfor %}
+                            <td><a href="/orders_has_products" class="btn btn-default">Edit</a></td>
+						    <td><a href="/orders_has_products" class="btn btn-default">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </thead>
+            {% endif %}
+        </table>
+    </div>
+    <div id="insert">
+        <form id="insertOrderhasProduct" action="/orders_has_products" method="post">
+            <legend><strong>Add Order has Product</strong></legend>
+            <fieldset>
+                <label for="order_id">Order id:</label>
+                <select class="form-control" id="order_id" name="order_id" pattern="[0-4]{1}" placeholder="" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="product_id">Product id:</label>
+                <select class="form-control" id="product_id" name="product_id" pattern="[0-4]{1}" placeholder="" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </fieldset>
+            <input type="submit" value="Add Order has Product" name="Add_Order_has_Product" class="btn btn-primary" style="margin:.5rem;">
+			<input class="btn" type="button" value="Cancel" onClick="browseOrdershasProducts()">
+        </form>
+    </div><br><br>
+    <div class="update">
+        <fieldset>
+            <legend>Edit order has product: </legend>
+            <form action="/orders_has_products">
+                <label for="order_has_product_id">Order has Product id:</label>
+                <select name="order_has_product_id" id="order_has_product_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="customer_id_update">Order id:</label>
+                <select name="customer_id_update" id="customer_id_update">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <label for="product_id_update">Product id:</label>
+                <select name="product_id_update" id="product_id_update">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
+    </div>
+</body>
+</html>
