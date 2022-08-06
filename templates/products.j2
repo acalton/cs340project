@@ -74,7 +74,7 @@
     </div><br><br>
     <div class="update">
         <fieldset>
-            <legend>Edit product: </legend>
+            <legend>Edit Product</legend>
             <form id="editProduct" action="/products" method="post">
                 <label for="product_id">Product id:</label>
                 <select name="product_id" id="product_id">
@@ -106,7 +106,8 @@
                 <input type="text" id="product_name_update" name="product_name_update">
                 <label for="description_update">Description: </label>
                 <input type="text" id="description_update" name="description_update">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Edit Product" name="Edit_Product" class="btn btn-primary" style="margin:.5rem;">
+                <a href='/products'><input class="btn" type="button" value="cancel"></a>
             </form>
         </fieldset>
     </div>

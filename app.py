@@ -132,6 +132,23 @@ def products():
             mysql.connection.commit()
 
             return redirect("/products")
+
+        if request.form.get("Edit_Product"):
+            product_id = request.form["product_id"]
+            product_type_id = request.form["product_type_id_update"]
+            ore_id = request.form["ore_id_update"]
+            gem_id = request.form["gem_id_update"]
+            num_gems = request.form["num_gems_update"]
+            product_name = request.form["product_name_update"]
+            description = request.form["description_update"]
+
+            query = "UPDATE Products SET product_type_id = %s, ore_id = %s, gem_id = %s, num_gems = %s, product_name = %s, description = %s WHERE product_id = %s"
+            cur = mysql.connection.cursor()
+            cur.execute(query, (product_type_id, ore_id, gem_id,\
+             num_gems, product_name, description, product_id,))
+            mysql.connection.commit()
+
+            return redirect("/products")
     
     if request.method == 'GET':
         query = "SELECT product_id, product_type_id, ore_id, gem_id,\
@@ -157,6 +174,18 @@ def orders():
 
             return redirect("/orders")
 
+        if request.form.get("Edit_Order"):
+            order_id = request.form["order_id"]
+            customer_id = request.form["customer_id_update"]
+            order_date_time = request.form["order_date_time_update"]
+
+            query = "UPDATE Orders SET customer_id = %s, order_date_time = %s WHERE order_id = %s"
+            cur = mysql.connection.cursor()
+            cur.execute(query, (customer_id, order_date_time, order_id))
+            mysql.connection.commit()
+
+            return redirect("/orders")
+
     if request.method == 'GET':
         query = "SELECT order_id, customer_id, order_date_time FROM Orders"
         cur = mysql.connection.cursor()
@@ -176,6 +205,18 @@ def orders_has_products():
             query = "INSERT INTO Orders_has_Products (order_id, product_id) VALUES (%s,%s)"
             cur = mysql.connection.cursor()
             cur.execute(query, (order_id, product_id))
+            mysql.connection.commit()
+
+            return redirect("/orders_has_products")
+
+        if request.form.get("Edit_Order_has_Product"):
+            order_has_product_id = request.form["order_has_product_id"]
+            order_id = request.form["order_id_update"]
+            product_id = request.form["product_id_update"]
+
+            query = "UPDATE Orders_has_Products SET order_id = %s, product_id = %s WHERE order_has_product_id = %s"
+            cur = mysql.connection.cursor()
+            cur.execute(query, (order_id, product_id, order_has_product_id))
             mysql.connection.commit()
 
             return redirect("/orders_has_products")
