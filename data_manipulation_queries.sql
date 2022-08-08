@@ -20,11 +20,19 @@ INNER JOIN Product_Types ON Products.product_type_id = Product_Types.product_typ
 INNER JOIN Ore ON Products.ore_id = Ore.ore_id
 INNER JOIN Gemstones ON Products.gem_id = Gemstones.gem_id;
 
--- SELECT query to sum the product price of a product based on ore and gems
-SELECT Ore.price_per_ore*Product_Types.num_ore_req + Gemstones.gem_price*Products.num_gems AS 'product price' FROM Products 
-INNER JOIN Product_Types ON Products.product_type_id = Product_Types.product_type_id
-INNER JOIN Ore ON Products.ore_id = Ore.ore_id
-INNER JOIN Gemstones ON Products.gem_id = Gemstones.gem_id;
+
+
+--  update query to sum the product price of a product based on ore and gems
+UPDATE Products 
+SET product_price = (
+    SELECT Ore.price_per_ore*Product_Types.num_ore_req + Gemstones.gem_price*Products.num_gems AS 'product price' FROM Products 
+    INNER JOIN Product_Types ON Products.product_type_id = Product_Types.product_type_id
+    INNER JOIN Ore ON Products.ore_id = Ore.ore_id
+    INNER JOIN Gemstones ON Products.gem_id = Gemstones.gem_id
+    WHERE product_id = :product_id)
+WHERE product_id = :product_id;
+
+
 
 -- to get all product_types for product_type page
 SELECT product_type_id, product_type_price, num_ore_req, IFNULL(description, 'None') FROM Product_Types;
@@ -41,11 +49,17 @@ SELECT gem_name, gem_price FROM Gemstones WHERE gem_price <= :gem_price_input;
 -- select statement for intersection table
 SELECT order_has_product_id, order_id, product_id, total_price FROM Orders_has_Products;
 
--- select query for total_price of intersection table, sums the price of the products from the same order ID
-SELECT SUM(Products.product_price) AS 'total price'
-FROM Orders_has_Products
-INNER JOIN Products ON Orders_has_Products.product_id = Products.product_id 
-WHERE Orders_has_Products.order_id = @Orders_has_Products.order_id;
+
+
+--    query for total_price of intersection table, sums the price of the products from the same order ID
+UPDATE Orders_has_Products
+SET total_price = ( 
+    SELECT SUM(Products.product_price) AS 'total price'
+    FROM Orders_has_Products
+    INNER JOIN Products ON Orders_has_Products.product_id = Products.product_id 
+    WHERE Orders_has_Products.order_id = :Orders_has_Products.order_id
+)
+WHERE Orders_has_Products.order_id = :Orders_has_Products.order_id ;
 
 
 
@@ -70,8 +84,8 @@ INSERT INTO Orders (customer_id, order_date_time)
 INSERT INTO Customers (full_name, phone_number, email) 
     VALUES (:full_name_input, :phone_number_input, :email_input);
 
-INSERT INTO Products (product_type_id, ore_id, gem_id, num_gems, product_name, description) 
-    VALUES (:product_type_id_input, :ore_id_input, :gem_id_input, :num_gems_input, :product_name_input, :description_input);
+INSERT INTO Products (product_type_id, ore_id, gem_id, num_gems, product_name, description, product_price) 
+    VALUES (:product_type_id_input, :ore_id_input, :gem_id_input, :num_gems_input, :product_name_input, :description_input, :product_price);
 
 INSERT INTO Product_Types (product_type_price, num_ore_req, description) 
     VALUES (:product_type_price_input, :num_ore_req_input, :description_input);
