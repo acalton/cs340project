@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product_Types</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script>
+        function browseProductTypes() {
+            showform('browse');
+        }
+    </script>
+</head>
+<body onload="browseProductTypes()">
+    <h1>Product_Types</h1>
+    <div class="button-link">
+    <a href="/">Return to home</a><br><br>
+    </div>
+    <div class="data-table" id="browse">
+        <table>
+            {% if data %}
+                <thead>
+                    <tr>
+                        {% for key in data[0].keys() %}
+                        <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+                        {% endfor %}
+                    </tr>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            {% for key in item.keys() %}
+                            <td> {{item[key]}} </td> 
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+            {% endif %}
+        </table>
+    </div><br><br>
+    <div id="insert">
+        <form id="insertProductType" action="/product_types" method="post">
+            <legend><strong>Add Product Type</strong></legend>
+            <fieldset>
+                <label for="product_type_name">Product type name: </label>
+                <input type="text" id="product_type_name" name="product_type_name" placeholder="" required>
+                <label for="product_type_price">Product type price: </label>
+                <input type="text" id="product_type_price" name="product_type_price" placeholder="" required>
+                <label for="num_ore_req">Num ore req: </label>
+                <input type="text" id="num_ore_req" name="num_ore_req" placeholder="" required>
+                <label for="description">Description: </label>
+                <input type="text" id="description" name="description" placeholder="" required>
+            </fieldset>
+            <input type="submit" value="Add Product Type" name="Add_Product_Type" class="btn btn-primary" style="margin:.5rem;">
+			<input class="btn" type="button" value="Cancel" onClick="browseProductTypes()">
+        </form>
+    </div><br><br>
+</body>
+</html>
