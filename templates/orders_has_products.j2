@@ -30,8 +30,6 @@
                             {% for key in item.keys() %}
                             <td> {{item[key]}} </td> 
                             {% endfor %}
-                            <td><a href="/orders_has_products" class="btn btn-default">Edit</a></td>
-						    <td><a href="/orders_has_products" class="btn btn-default">Delete</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -44,16 +42,16 @@
             <legend><strong>Add Order has Product</strong></legend>
             <fieldset>
                 <label for="order_id">Order id:</label>
-                <select class="form-control" id="order_id" name="order_id" pattern="[0-4]{1}" placeholder="" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="order_id" name="order_id">
+                    {% for order in order_ids %}
+                    <option value="{{ order['order_id'] }}">{{ order['order_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="product_id">Product id:</label>
-                <select class="form-control" id="product_id" name="product_id" pattern="[0-4]{1}" placeholder="" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="product_id" name="product_id">
+                    {% for product in product_ids %}
+                    <option value="{{ product['product_id'] }}">{{ product['product_id'] }}</option>
+                    {% endfor %}
                 </select>
             </fieldset>
             <input type="submit" value="Add Order has Product" name="Add_Order_has_Product" class="btn btn-primary" style="margin:.5rem;">
@@ -65,24 +63,39 @@
             <legend>Edit Order has Product: </legend>
             <form id="editOrderhasProduct" action="/orders_has_products" method="post">
                 <label for="order_has_product_id">Order has Product id:</label>
-                <select name="order_has_product_id" id="order_has_product_id">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="order_has_product_id" name="order_has_product_id">
+                    {% for order_has_product in order_has_product_ids %}
+                    <option value="{{ order_has_product['order_has_product_id'] }}">{{ order_has_product['order_has_product_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="order_id_update">Order id:</label>
-                <select name="order_id_update" id="order_id_update">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="order_id_update" name="order_id_update">
+                    {% for order in order_ids %}
+                    <option value="{{ order['order_id'] }}">{{ order['order_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="product_id_update">Product id:</label>
-                <select name="product_id_update" id="product_id_update">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="product_id_update" name="product_id_update">
+                    {% for product in product_ids %}
+                    <option value="{{ product['product_id'] }}">{{ product['product_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <input type="submit" value="Edit Order has Product" name="Edit_Order_has_Product" class="btn btn-primary" style="margin:.5rem;">
+                <a href='/orders_has_products'><input class="btn" type="button" value="cancel"></a>
+            </form>
+        </fieldset>
+    </div><br><br>
+    <div class="delete">
+        <fieldset>
+            <legend>Delete Order has Product</legend>
+            <form id="deleteOrderhasProduct" action="/orders_has_products" method="post">
+                <label for="order_has_product_id_delete">Order has Product id:</label>
+                <select id="order_has_product_id_delete" name="order_has_product_id_delete">
+                    {% for order_has_product in order_has_product_ids %}
+                    <option value="{{ order_has_product['order_has_product_id'] }}">{{ order_has_product['order_has_product_id'] }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Delete Order has Product" name="Delete_Order_has_Product" class="btn btn-primary" style="margin:.5rem;">
                 <a href='/orders_has_products'><input class="btn" type="button" value="cancel"></a>
             </form>
         </fieldset>

@@ -50,5 +50,16 @@
 			<input class="btn" type="button" value="Cancel" onClick="browseOre()">
         </form>
     </div><br><br>
+    <div id="search">
+        <form id="searchOre" action="/ore_search" method="post">
+            <legend><strong>Search Ore</strong></legend>
+            <fieldset>
+                <label for="ore_name_search">Ore name: </label>
+                <input type="text" id="ore_name_search" name="ore_name_search" placeholder="" required>
+            </fieldset>
+            <input type="submit" value="Search Ore" name="Search_Ore" class="btn btn-primary" style="margin:.5rem;">
+			<input class="btn" type="button" value="Cancel" onClick="browseOre()">
+        </form>
+    </div><br><br>
 </body>
 </html>

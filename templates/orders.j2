@@ -40,10 +40,10 @@
             <legend><strong>Add Order</strong></legend>
             <fieldset>
                 <label for="customer_id">Customer id:</label>
-                <select class="form-control" id="customer_id" name="customer_id" pattern="[0-4]{1}" placeholder="" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="customer_id" name="customer_id">
+                    {% for customer in customer_ids %}
+                    <option value="{{ customer['customer_id'] }}">{{ customer['customer_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="order_date_time">Order date time: </label>
                 <input type="text" id="order_date_time" name="order_date_time" placeholder="" required>
@@ -57,20 +57,35 @@
             <legend>Edit Order</legend>
             <form id="editOrder" action="/orders" method="post">
                 <label for="order_id">Order id:</label>
-                <select name="order_id" id="order_id">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="order_id" name="order_id">
+                    {% for order in order_ids %}
+                    <option value="{{ order['order_id'] }}">{{ order['order_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="customer_id_update">Customer id:</label>
-                <select class="form-control" id="customer_id_update" name="customer_id_update" pattern="[0-4]{1}" placeholder="" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="customer_id_update" name="customer_id_update">
+                    {% for customer in customer_ids %}
+                    <option value="{{ customer['customer_id'] }}">{{ customer['customer_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="order_date_time_update">Order date time: </label>
-                <input type="text" id="order_date_time_update" name="order_date_time_update" placeholder="" required>
+                <input type="text" id="order_date_time_update" name="order_date_time_update" placeholder="">
                 <input type="submit" value="Edit Order" name="Edit_Order" class="btn btn-primary" style="margin:.5rem;">
+                <a href='/orders'><input class="btn" type="button" value="cancel"></a>
+            </form>
+        </fieldset>
+    </div><br><br>
+    <div class="delete">
+        <fieldset>
+            <legend>Delete Order</legend>
+            <form id="deleteOrder" action="/orders" method="post">
+                <label for="order_id_delete">Order id:</label>
+                <select id="order_id_delete" name="order_id_delete">
+                    {% for order in order_ids %}
+                    <option value="{{ order['order_id'] }}">{{ order['order_id'] }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Delete Order" name="Delete_Order" class="btn btn-primary" style="margin:.5rem;">
                 <a href='/orders'><input class="btn" type="button" value="cancel"></a>
             </form>
         </fieldset>

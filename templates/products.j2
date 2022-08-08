@@ -29,8 +29,6 @@
                             {% for key in item.keys() %}
                             <td> {{item[key]}} </td> 
                             {% endfor %}
-                            <td><a href="/products" class="btn btn-default">Edit</a></td>
-						    <td><a href="/products" class="btn btn-default">Delete</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -44,29 +42,30 @@
             <legend><strong>Add Product</strong></legend>
             <fieldset>
                 <label for="product_type_id">Product type id:</label>
-                <select class="form-control" id="product_type_id" name="product_type_id" pattern="[0-4]{1}" placeholder="" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="product_type_id" name="product_type_id">
+                    {% for product_type in product_type_ids %}
+                    <option value="{{ product_type['product_type_id'] }}">{{ product_type['product_type_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="ore_id">Ore id:</label>
-                <select name="ore_id" class="form-control" id="ore_id" pattern="[0-4]{1}" placeholder="" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="ore_id" name="ore_id">
+                    {% for ore in ore_ids %}
+                    <option value="{{ ore['ore_id'] }}">{{ ore['ore_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="gem_id">Gem id:</label>
-                <select name="gem_id" class="form-control" id="gem_id" pattern="[0-4]{1}" placeholder="" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="gem_id" name="gem_id">
+                    <option value="0">None</option>
+                    {% for gem in gem_ids %}
+                    <option value="{{ gem['gem_id'] }}">{{ gem['gem_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="num_gems">Num gems: </label>
-                <input type="text" class="form-control" id="num_gems" name="num_gems" pattern="[A-Za-z0-9]{1,}" placeholder="" required>
+                <input type="text" class="form-control" id="num_gems" name="num_gems" pattern="[A-Za-z0-9]{1,}" placeholder="0">
                 <label for="product_name">Product name: </label>
                 <input type="text" class="form-control" id="product_name" name="product_name" pattern="[A-Za-z0-9]{1,}" placeholder="" required>
                 <label for="description">Description: </label>
-                <input type="text" class="form-control" id="description" name="description" pattern="[A-Za-z0-9]{1,}" placeholder="" required>
+                <input type="text" id="description" name="description" " placeholder="">
             </fieldset>
             <input type="submit" value="Add Product" name="Add_Product" class="btn btn-primary" style="margin:.5rem;">
 			<input class="btn" type="button" value="Cancel" onClick="browseProducts()">
@@ -77,28 +76,29 @@
             <legend>Edit Product</legend>
             <form id="editProduct" action="/products" method="post">
                 <label for="product_id">Product id:</label>
-                <select name="product_id" id="product_id">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="product_id" name="product_id">
+                    {% for product in product_ids %}
+                    <option value="{{ product['product_id'] }}">{{ product['product_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="product_type_id_update">Product type id:</label>
-                <select name="product_type_id_update" id="product_type_id_update">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="product_type_id_update" name="product_type_id_update">
+                    {% for product_type in product_type_ids %}
+                    <option value="{{ product_type['product_type_id'] }}">{{ product_type['product_type_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="ore_id_update">Ore id:</label>
-                <select name="ore_id_update" id="ore_id_update">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="ore_id_update" name="ore_id_update">
+                    {% for ore in ore_ids %}
+                    <option value="{{ ore['ore_id'] }}">{{ ore['ore_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="gem_id_update">Gem id:</label>
-                <select name="gem_id_update" id="gem_id_update">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <select id="gem_id_update" name="gem_id_update">
+                    <option value="0">None</option>
+                    {% for gem in gem_ids %}
+                    <option value="{{ gem['gem_id'] }}">{{ gem['gem_id'] }}</option>
+                    {% endfor %}
                 </select>
                 <label for="num_gems_update">Num gems: </label>
                 <input type="text" id="num_gems_update" name="num_gems_update">
@@ -107,6 +107,21 @@
                 <label for="description_update">Description: </label>
                 <input type="text" id="description_update" name="description_update">
                 <input type="submit" value="Edit Product" name="Edit_Product" class="btn btn-primary" style="margin:.5rem;">
+                <a href='/products'><input class="btn" type="button" value="cancel"></a>
+            </form>
+        </fieldset>
+    </div><br><br>
+    <div class="delete">
+        <fieldset>
+            <legend>Delete Product</legend>
+            <form id="deleteProduct" action="/products" method="post">
+                <label for="product_id_delete">Product id:</label>
+                <select id="product_id_delete" name="product_id_delete">
+                    {% for product in product_ids %}
+                    <option value="{{ product['product_id'] }}">{{ product['product_id'] }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Delete Product" name="Delete_Product" class="btn btn-primary" style="margin:.5rem;">
                 <a href='/products'><input class="btn" type="button" value="cancel"></a>
             </form>
         </fieldset>
